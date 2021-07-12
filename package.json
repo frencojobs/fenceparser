@@ -1,6 +1,6 @@
 {
   "name": "fenceparser",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Frenco <hey@frenco.dev>",
   "repository": {
     "type": "git",
@@ -8,8 +8,7 @@
   },
   "license": "MIT",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
