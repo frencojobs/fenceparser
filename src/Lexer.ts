@@ -28,12 +28,12 @@ class Lexer extends Iterator<string> {
   private number() {
     while (isNumeric(this.peek()) && !this.isAtEnd()) this.advance()
 
-    if (this.peek() == '-' && isNumeric(this.peek(1))) {
+    if (this.peek() === '-' && isNumeric(this.peek(1))) {
       this.advance()
       while (isNumeric(this.peek())) this.advance()
       this.output.push(this.input.substring(this.start, this.current))
       return
-    } else if (this.peek() == '.' && isNumeric(this.peek(1))) {
+    } else if (this.peek() === '.' && isNumeric(this.peek(1))) {
       this.advance()
       while (isNumeric(this.peek())) this.advance()
     }

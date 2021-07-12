@@ -1,12 +1,11 @@
-declare global {
-  interface Map<K extends string, V> {
-    toObject(): Record<K, V>
-  }
-}
+export const mapToObject = (map: Map<string, unknown> | null) => {
+  if (map === null) return map
 
-Map.prototype.toObject = function(this: Map<string, unknown>) {
-  return Array.from(this.entries()).reduce(
-    (obj: Record<string, unknown>, [key, value]) => ((obj[key] = value), obj),
+  return Array.from(map.entries()).reduce(
+    (obj: Record<string, unknown>, [key, value]) => {
+      obj[key] = value
+      return obj
+    },
     {}
   )
 }
