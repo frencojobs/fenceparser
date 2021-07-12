@@ -23,7 +23,7 @@ Using [remark](https://github.com/remarkjs/remark) will yield two information ab
 }
 ```
 
-Use `fenceparser` to parse the meta out to a useful object.
+Use `fenceparser` to parse the `meta` string out to a useful object.
 
 ```js
 import parse from 'fenceparser'
@@ -41,7 +41,7 @@ console.log(parse(meta))
 
 ## Syntax
 
-Syntax grammar is loosely based on techniques used by various syntax-highlighters. Rules are such that
+The syntax grammar is loosely based on techniques used by various syntax-highlighters. Rules are such that
 
 - Valid HTML attributes can be used, `attribute`, `data-attribute`, etc.
 - Attributes without values are assigned as `true`
@@ -55,4 +55,4 @@ Syntax grammar is loosely based on techniques used by various syntax-highlighter
 ## Acknowledgements
 
 1. This project is made initially to use with [Twoslash](https://github.com/shikijs/twoslash).
-2. The `Lexer` and `Parser` are based on the examples from the book [Crafting Interpreters](http://craftinginterpreters.com/).
+2. The `Lexer` and `Parser` are based on the examples from the book [Crafting Interpreters](http://craftinginterpreters.com).
