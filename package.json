@@ -18,14 +18,10 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "prepare": "tsdx build"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^5.0.1",
     "husky": "^7.0.1",
-    "size-limit": "^5.0.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
@@ -38,15 +34,5 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
-  },
-  "size-limit": [
-    {
-      "path": "dist/fenceparser.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/fenceparser.esm.js",
-      "limit": "10 KB"
-    }
-  ]
+  }
 }
