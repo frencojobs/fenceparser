@@ -11,7 +11,7 @@
   "typings": "dist/index.d.ts",
   "module": "dist/fenceparser.esm.js",
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "scripts": {
     "start": "tsdx watch",
