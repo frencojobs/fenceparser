@@ -1,4 +1,4 @@
-<img align="center" src="https://raw.githubusercontent.com/frencojobs/fenceparser/dev/.github/cover.png" />
+<img align="center" src="https://raw.githubusercontent.com/frencojobs/fenceparser/main/.github/cover.png" />
 
 <p align="center"> A well-tested parser for parsing metadata out of fenced code blocks in Markdown. </p>
 
