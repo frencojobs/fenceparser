@@ -1,6 +1,5 @@
 import parse from '../src'
 import cases, { n } from './cases'
-import { mapToObject } from './utils'
 
 describe(`${n} tests with ordering permutations`, () => {
   for (const test of cases) {
@@ -10,7 +9,7 @@ describe(`${n} tests with ordering permutations`, () => {
           new Error(`Fenceparser: ${test.error}.`)
         )
       } else if (test.output) {
-        expect(mapToObject(parse(test.input))).toEqual(test.output)
+        expect(parse(test.input)).toEqual(test.output)
       }
     })
   }

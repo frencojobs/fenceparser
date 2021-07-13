@@ -1,15 +1,3 @@
-export const mapToObject = (map: Map<string, unknown> | null) => {
-  if (map === null) return map
-
-  return Array.from(map.entries()).reduce(
-    (obj: Record<string, unknown>, [key, value]) => {
-      obj[key] = value
-      return obj
-    },
-    {}
-  )
-}
-
 // Apparently from StackOverflow
 const permute = (input: Array<string>) => {
   let length = input.length,

@@ -1,3 +1,7 @@
+## 1.1.0
+
+- Return `Record<string, VALUE>` instead of `Map<string, VALUE>`
+
 ## 1.0.2
 
 - Add package information such as `description` and `keywords`
