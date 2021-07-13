@@ -22,7 +22,7 @@ export type VALUE = OBJECT | Array<VALUE> | string | boolean | number
 export const parse = (input: Array<Token>) => new Parser(input).parse()
 
 class Parser extends Iterator<Array<Token>> {
-  private output: Map<string, VALUE> = new Map()
+  private output: Record<string, VALUE> = {}
 
   private object() {
     const result: OBJECT = {}
@@ -106,22 +106,22 @@ class Parser extends Iterator<Array<Token>> {
       const peeked = this.peek()
 
       if (peeked === '{') {
-        if (!this.output.has('highlight')) {
-          this.output.set('highlight', {})
+        if (!this.output.highlight) {
+          this.output.highlight = {}
         }
 
-        this.output.set('highlight', {
-          ...(this.output.get('highlight') as OBJECT),
+        this.output.highlight = {
+          ...(this.output.highlight as OBJECT),
           ...this.object()
-        })
+        }
       } else {
         const identifier = this.advance() as string
 
         if (this.peek() === '=') {
           this.advance()
-          this.output.set(identifier, this.value())
+          this.output[identifier] = this.value()
         } else {
-          this.output.set(identifier, true)
+          this.output[identifier] = true
         }
       }
     }
