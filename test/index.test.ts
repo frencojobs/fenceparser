@@ -1,5 +1,5 @@
 import parse from '../src'
-import cases, { n } from './cases'
+import cases, {n} from './cases'
 
 describe(`${n} tests with ordering permutations`, () => {
   for (const test of cases) {
