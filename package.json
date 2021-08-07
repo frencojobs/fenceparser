@@ -1,8 +1,7 @@
 {
   "name": "fenceparser",
-  "description": "A well-tested parser for parsing metadata out of fenced code blocks in Markdown",
   "version": "1.1.0",
-  "author": "Frenco <hey@frenco.dev>",
+  "description": "A well-tested parser for parsing metadata out of fenced code blocks in Markdown",
   "keywords": [
     "markdown"
   ],
@@ -11,34 +10,34 @@
     "url": "https://github.com/frencojobs/fenceparser"
   },
   "license": "MIT",
+  "author": "Frenco <hey@frenco.dev>",
+  "main": "dist/index.js",
+  "module": "dist/fenceparser.esm.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "module": "dist/fenceparser.esm.js",
-  "engines": {
-    "node": ">=12"
-  },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint"
   },
-  "devDependencies": {
-    "husky": "^7.0.1",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.3.0",
-    "typescript": "^4.3.5"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
     }
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
+  "prettier": "minimalistic",
+  "devDependencies": {
+    "husky": "^7.0.1",
+    "minimalistic": "^1.0.0",
+    "prettier": "^2.3.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  },
+  "engines": {
+    "node": ">=12"
   }
 }

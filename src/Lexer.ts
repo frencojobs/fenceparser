@@ -1,4 +1,4 @@
-import { Iterator, Token } from './utils'
+import {Iterator, Token} from './utils'
 
 export const lex = (input: string) => new Lexer(input).scan()
 

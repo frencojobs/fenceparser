@@ -1,4 +1,4 @@
-import { prepareCases } from './utils'
+import {prepareCases} from './utils'
 
 const cases = [
   // Empty
@@ -29,8 +29,8 @@ const cases = [
     input: ['attr1={}', 'attr2={1-3, 5}', 'attr3={1, inner1, inner2:2}'],
     output: {
       attr1: {},
-      attr2: { '1-3': true, 5: true },
-      attr3: { 1: true, inner1: true, inner2: 2 }
+      attr2: {'1-3': true, 5: true},
+      attr3: {1: true, inner1: true, inner2: 2}
     }
   },
   {
@@ -54,7 +54,7 @@ const cases = [
     input: ['attr1=[]', 'attr2=[0, false, "string", {1-3, 5}, ["innermost"]]'],
     output: {
       attr1: [],
-      attr2: [0, false, 'string', { '1-3': true, 5: true }, ['innermost']]
+      attr2: [0, false, 'string', {'1-3': true, 5: true}, ['innermost']]
     }
   },
   // Unquoted strings (only works for those without spaces)

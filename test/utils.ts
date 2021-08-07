@@ -33,8 +33,8 @@ export const prepareCases = (
   }>
 ) => {
   return cases
-    .map(({ input, ...props }) => {
-      return permute(input).map(p => ({ input: p.join(' '), ...props }))
+    .map(({input, ...props}) => {
+      return permute(input).map((p) => ({input: p.join(' '), ...props}))
     })
     .reduce((a, b) => [...a, ...b])
 }

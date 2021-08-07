@@ -1,4 +1,4 @@
-import { isQuoted, Iterator, Token } from './utils'
+import {isQuoted, Iterator, Token} from './utils'
 
 // Grammar - Recursive Descent
 //
@@ -16,7 +16,7 @@ import { isQuoted, Iterator, Token } from './utils'
 // VALUE → IDENTIFIER | OBJECT | ARRAY | ("|') STRING ("|') | BOOLEAN | NUMBER
 // IDENTIFIER → STRING
 
-export type OBJECT = { [key in string | number]: VALUE }
+export type OBJECT = {[key in string | number]: VALUE}
 export type VALUE = OBJECT | Array<VALUE> | string | boolean | number
 
 export const parse = (input: Array<Token>) => new Parser(input).parse()
