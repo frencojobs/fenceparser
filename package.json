@@ -29,6 +29,9 @@
     }
   },
   "prettier": "minimalistic",
+  "resolutions": {
+    "tsdx/**/prettier": "^2.3.2"
+  },
   "devDependencies": {
     "husky": "^7.0.1",
     "minimalistic": "^1.0.0",
