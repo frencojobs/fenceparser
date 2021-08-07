@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Add [minimalistic](https://npm.im/minimalistic) as default prettier config and format code
+
 ## 1.1.0
 
 - Return `Record<string, VALUE>` instead of `Map<string, VALUE>`
