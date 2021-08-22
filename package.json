@@ -44,6 +44,11 @@
     "ignorePatterns": "dist"
   },
   "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.test.json"
+      }
+    },
     "testMatch": [
       "<rootDir>/**/*.(spec|test).{ts,tsx,js,jsx}"
     ],
