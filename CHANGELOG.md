@@ -1,3 +1,8 @@
+## 2.0.0
+
+- Remove TSDX
+- Opt-in to ES Modules
+
 ## 1.1.1
 
 - Add [minimalistic](https://npm.im/minimalistic) as default prettier config and format code
