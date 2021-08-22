@@ -1,13 +1,12 @@
 // Apparently from StackOverflow
 const permute = (input: Array<string>) => {
-  let length = input.length,
-    result = [input.slice()],
-    c = new Array(length).fill(0),
-    i = 1,
+  const result = [input.slice()]
+  const c = new Array(input.length).fill(0)
+  let i = 1,
     k,
     p
 
-  while (i < length) {
+  while (i < input.length) {
     if (c[i] < i) {
       k = i % 2 && c[i]
       p = input[i]

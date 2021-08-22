@@ -5,42 +5,65 @@
   "keywords": [
     "markdown"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/frencojobs/fenceparser"
-  },
+  "repository": "frencojobs/fenceparser",
   "license": "MIT",
   "author": "Frenco <hey@frenco.dev>",
-  "main": "dist/index.js",
-  "module": "dist/fenceparser.esm.js",
+  "type": "module",
+  "exports": "./dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
+    "build": "tsup",
+    "watch": "tsup --watch",
+    "lint": "eslint src/ test/ --ext .js,.jsx,.ts,.tsx",
+    "test": "jest",
+    "prepare": "husky install"
   },
   "prettier": "minimalistic",
-  "resolutions": {
-    "**/tsdx/**/prettier": "^2.3.2"
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ]
+    },
+    "ignorePatterns": "dist"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/**/*.(spec|test).{ts,tsx,js,jsx}"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    }
   },
   "devDependencies": {
-    "husky": "^7.0.1",
+    "@types/jest": "^26.0.24",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^7.0.0",
+    "jest": "^27.0.6",
     "minimalistic": "^1.0.0",
     "prettier": "^2.3.2",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.3.0",
+    "ts-jest": "^27.0.4",
+    "tsup": "^4.13.1",
     "typescript": "^4.3.5"
-  },
-  "engines": {
-    "node": ">=12"
   }
 }
