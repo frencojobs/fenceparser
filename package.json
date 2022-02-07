@@ -9,6 +9,7 @@
   "license": "MIT",
   "author": "Frenco <hey@frenco.dev>",
   "type": "module",
+  "main": "dist/index.js",
   "exports": "./dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
