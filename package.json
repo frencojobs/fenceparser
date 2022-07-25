@@ -16,37 +16,26 @@
   ],
   "scripts": {
     "build": "tsup",
-    "watch": "tsup --watch",
-    "test": "jest"
+    "test": "jest",
+    "watch": "tsup --watch"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged"
   },
   "lint-staged": {
     "*": "prettier --write",
     "*.ts": "eslint --fix"
   },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm exec lint-staged"
-  },
-  "prettier": "minimalistic",
+  "prettier": "@frenco/prettier-config",
   "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended"
-    ],
-    "rules": {
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "prettier/prettier": [
-        "error",
-        {
-          "endOfLine": "auto"
-        }
-      ]
+    "parserOptions": {
+      "project": "./tsconfig.json"
     },
-    "ignorePatterns": "dist"
+    "extends": "@frenco/eslint-config",
+    "ignorePatterns": [
+      "dist"
+    ],
+    "root": true
   },
   "jest": {
     "globals": {
@@ -61,21 +50,18 @@
       "^.+\\.(ts|tsx)$": "ts-jest"
     }
   },
-  "packageManager": "pnpm@7.6.0",
   "devDependencies": {
+    "@frenco/eslint-config": "^1.0.0",
+    "@frenco/prettier-config": "^1.0.0",
     "@types/jest": "^27.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.29.0",
-    "@typescript-eslint/parser": "^4.29.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint": "^8.20.0",
     "jest": "^27.0.6",
     "lint-staged": "^13.0.3",
-    "minimalistic": "^1.0.0",
-    "prettier": "^2.3.2",
+    "prettier": "^2.7.1",
     "simple-git-hooks": "^2.8.0",
     "ts-jest": "^27.0.4",
     "tsup": "^4.13.1",
-    "typescript": "^4.3.5"
-  }
+    "typescript": "^4.7.4"
+  },
+  "packageManager": "pnpm@7.6.0"
 }
