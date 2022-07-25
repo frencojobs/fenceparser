@@ -9,15 +9,14 @@
   "license": "MIT",
   "author": "Frenco <hey@frenco.dev>",
   "type": "module",
-  "exports": "./dist/index.js",
+  "exports": "./dist/index.mjs",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
-    "test": "jest",
-    "watch": "tsup --watch"
+    "build": "unbuild",
+    "test": "vitest"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged"
@@ -37,31 +36,18 @@
     ],
     "root": true
   },
-  "jest": {
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "tsconfig.test.json"
-      }
-    },
-    "testMatch": [
-      "<rootDir>/**/*.(spec|test).{ts,tsx,js,jsx}"
-    ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
-    }
-  },
   "devDependencies": {
     "@frenco/eslint-config": "^1.0.0",
     "@frenco/prettier-config": "^1.0.0",
-    "@types/jest": "^27.0.1",
+    "@tsconfig/node16-strictest": "^1.0.3",
+    "c8": "^7.12.0",
     "eslint": "^8.20.0",
-    "jest": "^27.0.6",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "simple-git-hooks": "^2.8.0",
-    "ts-jest": "^27.0.4",
-    "tsup": "^4.13.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "unbuild": "^0.7.6",
+    "vitest": "^0.19.1"
   },
   "packageManager": "pnpm@7.6.0"
 }

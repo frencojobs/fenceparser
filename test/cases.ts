@@ -16,12 +16,37 @@ const cases = [
     }
   },
   {
-    input: ['attr1', 'attr2=2', 'attr3="string"', 'attr4=false'],
+    input: ['attr1', 'attr2=2', , 'attr3="string"', 'attr4=false'],
     output: {
       attr1: true,
       attr2: 2,
       attr3: 'string',
       attr4: false
+    }
+  },
+  // Numbers
+  {
+    input: [
+      'attr1=1',
+      'attr2=2.3',
+      'attr3=123',
+      'attr4=456.789',
+      'attr5={1, 2-3, 123, 456-789}'
+    ],
+    output: {
+      attr1: 1,
+      attr2: 2.3,
+      attr3: 123,
+      attr4: 456.789,
+      attr5: {1: true, '2-3': true, 123: true, '456-789': true}
+    }
+  },
+  // Strings
+  {
+    input: ['attr1="doublequoted"', "attr2='singlequoted'"],
+    output: {
+      attr1: 'doublequoted',
+      attr2: 'singlequoted'
     }
   },
   // Objects
@@ -169,7 +194,7 @@ const cases = [
     input: ['css={*: {}}'],
     error: 'Unexpected character *'
   }
-]
+] as Parameters<typeof prepareCases>[0]
 
 export const n = cases.length
 export default prepareCases(cases)

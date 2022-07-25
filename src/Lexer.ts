@@ -26,7 +26,7 @@ class Lexer extends Iterator<string> {
   }
 
   private number() {
-    while (isNumeric(this.peek()) && !this.isAtEnd()) this.advance()
+    while (isNumeric(this.peek())) this.advance()
 
     if (this.peek() === '-' && isNumeric(this.peek(1))) {
       this.advance()
@@ -46,7 +46,7 @@ class Lexer extends Iterator<string> {
 
     const text = this.input.substring(this.start, this.current)
     if (Object.keys(KEYWORDS).includes(text)) {
-      this.output.push(KEYWORDS[text])
+      this.output.push(KEYWORDS[text]!)
     } else {
       this.output.push(text)
     }

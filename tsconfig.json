@@ -1,24 +1,5 @@
 {
-  "compilerOptions": {
-    // Mandatory
-    "strict": true,
-    "module": "ESNext",
-    "target": "ESNext",
-    "types": ["node", "jest"],
-
-    // Optional
-    "lib": ["DOM", "ESNext"],
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  },
+  "extends": "@tsconfig/node16-strictest/tsconfig.json",
   "include": ["src", "test"],
   "exclude": ["node_modules"]
 }

@@ -10,8 +10,8 @@ const permute = (input: Array<string>) => {
     if (c[i] < i) {
       k = i % 2 && c[i]
       p = input[i]
-      input[i] = input[k]
-      input[k] = p
+      input[i] = input[k]!
+      input[k] = p!
       ++c[i]
       i = 1
       result.push(input.slice())

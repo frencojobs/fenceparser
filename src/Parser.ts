@@ -106,12 +106,12 @@ class Parser extends Iterator<Array<Token>> {
       const peeked = this.peek()
 
       if (peeked === '{') {
-        if (!this.output.highlight) {
-          this.output.highlight = {}
+        if ('highlight' in this.output === false) {
+          this.output['highlight'] = {}
         }
 
-        this.output.highlight = {
-          ...(this.output.highlight as OBJECT),
+        this.output['highlight'] = {
+          ...(this.output['highlight'] as OBJECT),
           ...this.object()
         }
       } else {

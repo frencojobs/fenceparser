@@ -15,12 +15,12 @@ export class Iterator<T extends string | Array<Token>> {
   protected start = 0
   protected current = 0
 
-  protected peek(n?: number): T[number] {
-    return this.input[this.current + (n ?? 0)]
+  protected peek(n = 0): T[number] {
+    return this.input[this.current + n]!
   }
 
   protected advance(): T[number] {
-    return this.input[this.current++]
+    return this.input[this.current++]!
   }
 
   protected isAtEnd() {
