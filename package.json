@@ -56,6 +56,7 @@
       "^.+\\.(ts|tsx)$": "ts-jest"
     }
   },
+  "packageManager": "pnpm@7.6.0",
   "devDependencies": {
     "@types/jest": "^27.0.1",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
