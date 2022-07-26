@@ -1,5 +1,5 @@
 import {describe, expect, it} from 'vitest'
-import parse, {lex, parse as pureParse} from '../src'
+import parse, {lex, parse as pureParse} from '../dist'
 import cases, {n} from './cases'
 
 describe('test an edge case for parser', () => {
