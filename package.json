@@ -23,7 +23,9 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "test": "vitest"
+    "format": "prettier -w . --cache",
+    "test": "vitest",
+    "version": "changeset version && pnpm run format"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged"
@@ -44,6 +46,7 @@
     "root": true
   },
   "devDependencies": {
+    "@changesets/cli": "^2.24.1",
     "@frenco/eslint-config": "^1.0.0",
     "@frenco/prettier-config": "^1.0.0",
     "@tsconfig/node16-strictest": "^1.0.3",
