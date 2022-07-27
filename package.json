@@ -23,6 +23,7 @@
   ],
   "scripts": {
     "build": "unbuild",
+    "coverage": "vitest --coverage",
     "format": "prettier -w . --cache",
     "test": "vitest",
     "version": "changeset version && pnpm run format"

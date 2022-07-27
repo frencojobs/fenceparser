@@ -23,4 +23,7 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       - name: Run tests
-        run: pnpm t
+        run: pnpm run coverage
+
+      - name: Report coverage
+        uses: codecov/codecov-action@v3
