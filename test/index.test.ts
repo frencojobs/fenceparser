@@ -1,5 +1,5 @@
 import {describe, expect, it} from 'vitest'
-import parse, {lex, parse as pureParse} from '../dist'
+import parse, {lex, parse as pureParse} from '../src'
 import cases, {n} from './cases'
 
 describe('test an edge case for parser', () => {
@@ -13,7 +13,7 @@ describe(`${n} tests with ordering permutations`, () => {
     it(`${test.error ? 'Exception: ' : ''}${test.input}`, () => {
       if (test.error) {
         expect(() => parse(test.input)).toThrow(
-          new Error(`Fenceparser: ${test.error}.`)
+          new Error(`Fenceparser: ${test.error}.`),
         )
       } else if (test.output) {
         // `pureParse(lex` is same as `parse`
