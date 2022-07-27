@@ -4,7 +4,7 @@ export const lex = (input: string) => new Lexer(input).scan()
 
 const KEYWORDS: Record<string, Token> = {
   true: true,
-  false: false
+  false: false,
 }
 
 const isAlpha = (s: string) => /[a-zA-Z_$-]/.test(s)
@@ -12,7 +12,7 @@ const isNumeric = (s: string) => /[0-9]/.test(s)
 const isAlphaNumeric = (s: string) => isAlpha(s) || isNumeric(s)
 
 class Lexer extends Iterator<string> {
-  private output: Array<Token> = []
+  private output: Token[] = []
 
   private string(quote: string) {
     while (this.peek() !== quote && !this.isAtEnd()) this.advance()

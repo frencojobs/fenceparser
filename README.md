@@ -51,7 +51,7 @@ But if you want to allow loose syntax grammars such as `ts{1-3, 5}` as well as `
 In these cases, you can use the the library's `lex` function to get a properly tokenized array. You may then take out the first element as `lang`. For example,
 
 ```js
-import { lex, parse } from 'fenceparser'
+import {lex, parse} from 'fenceparser'
 // Notice this ^ parse is not the same the default export function
 
 const full = [node.lang, node.meta].join(' ') // Join them back

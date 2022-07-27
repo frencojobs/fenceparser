@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@changesets/cli': ^2.24.1
-  '@frenco/eslint-config': ^1.0.1
+  '@frenco/eslint-config': ^1.1.0
   '@frenco/prettier-config': ^2.0.0
   '@tsconfig/node16-strictest': ^1.0.3
   c8: ^7.12.0
@@ -16,7 +16,7 @@ specifiers:
 
 devDependencies:
   '@changesets/cli': 2.24.1
-  '@frenco/eslint-config': 1.0.1_7wmdnazylordkmmp5xylrck47q
+  '@frenco/eslint-config': 1.1.0_7wmdnazylordkmmp5xylrck47q
   '@frenco/prettier-config': 2.0.0_gd3y7r3s3evy6b2vthd7dmacga
   '@tsconfig/node16-strictest': 1.0.3
   c8: 7.12.0
@@ -566,10 +566,10 @@ packages:
       - supports-color
     dev: true
 
-  /@frenco/eslint-config/1.0.1_7wmdnazylordkmmp5xylrck47q:
+  /@frenco/eslint-config/1.1.0_7wmdnazylordkmmp5xylrck47q:
     resolution:
       {
-        integrity: sha512-POo3iUUsZHgPPxRVoD9njyF8f499CcGI4FEO0ONNH8ua/qdXs/qbd8dMpgzCp06hx9rPMm1RV9Ytr/VTCO9hqA==,
+        integrity: sha512-IJla64dsmdC79gNK2nz//iuZ1xFAF3efzaGUc679FMB/8ylebuEwXdUpvZ/aH4dLYvT2RHbkifK+tdq9jcSMAA==,
       }
     peerDependencies:
       eslint: '>=8.19.0'
