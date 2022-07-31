@@ -27,9 +27,6 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
-      - name: Make sure tests pass
-        run: pnpm t
-
       - name: Create Release Pull Request or Publish
         uses: changesets/action@v1
         with:

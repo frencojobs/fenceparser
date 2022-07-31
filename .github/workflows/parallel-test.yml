@@ -1,12 +1,19 @@
-name: Test
+name: Parallel Test
 
 on: [push]
 
 jobs:
   test:
-    name: Test
+    name: Parallel Test
     runs-on: ubuntu-latest
     steps:
+      - name: Wait for tests to succeed
+        uses: lewagon/wait-on-check-action@v1
+        with:
+          ref: ${{ github.ref }}
+          check-name: Test
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Checkout repo
         uses: actions/checkout@v2
 
@@ -24,6 +31,3 @@ jobs:
 
       - name: Run tests
         run: pnpm t
-
-      - name: Report coverage
-        uses: codecov/codecov-action@v3
