@@ -4,7 +4,7 @@ const cases = [
   // Empty
   {
     input: [''],
-    output: null
+    output: null,
   },
   // Attributes
   {
@@ -12,8 +12,8 @@ const cases = [
     output: {
       attr1: true,
       'attr-2': true,
-      attr_3: true
-    }
+      attr_3: true,
+    },
   },
   {
     input: ['attr1', 'attr2=2', 'attr3="string"', 'attr4=false'],
@@ -21,8 +21,33 @@ const cases = [
       attr1: true,
       attr2: 2,
       attr3: 'string',
-      attr4: false
-    }
+      attr4: false,
+    },
+  },
+  // Numbers
+  {
+    input: [
+      'attr1=1',
+      'attr2=2.3',
+      'attr3=123',
+      'attr4=456.789',
+      'attr5={1, 2-3, 123, 456-789}',
+    ],
+    output: {
+      attr1: 1,
+      attr2: 2.3,
+      attr3: 123,
+      attr4: 456.789,
+      attr5: {1: true, '2-3': true, 123: true, '456-789': true},
+    },
+  },
+  // Strings
+  {
+    input: ['attr1="doublequoted"', "attr2='singlequoted'"],
+    output: {
+      attr1: 'doublequoted',
+      attr2: 'singlequoted',
+    },
   },
   // Objects
   {
@@ -30,12 +55,12 @@ const cases = [
     output: {
       attr1: {},
       attr2: {'1-3': true, 5: true},
-      attr3: {1: true, inner1: true, inner2: 2}
-    }
+      attr3: {1: true, inner1: true, inner2: 2},
+    },
   },
   {
     input: [
-      'attr1={1-3, 5, inner1: false, inner2: "string", inner3: {innermost1}}'
+      'attr1={1-3, 5, inner1: false, inner2: "string", inner3: {innermost1}}',
     ],
     output: {
       attr1: {
@@ -44,33 +69,33 @@ const cases = [
         inner1: false,
         inner2: 'string',
         inner3: {
-          innermost1: true
-        }
-      }
-    }
+          innermost1: true,
+        },
+      },
+    },
   },
   // Arrays
   {
     input: ['attr1=[]', 'attr2=[0, false, "string", {1-3, 5}, ["innermost"]]'],
     output: {
       attr1: [],
-      attr2: [0, false, 'string', {'1-3': true, 5: true}, ['innermost']]
-    }
+      attr2: [0, false, 'string', {'1-3': true, 5: true}, ['innermost']],
+    },
   },
   // Unquoted strings (only works for those without spaces)
   {
     input: ['attr1=value1', 'attr2=--variable-names-like-css'],
     output: {
       attr1: 'value1',
-      attr2: '--variable-names-like-css'
-    }
+      attr2: '--variable-names-like-css',
+    },
   },
   // Highlight Object (object literal without an attribute name)
   {
     input: ['{}'],
     output: {
-      highlight: {}
-    }
+      highlight: {},
+    },
   },
   {
     input: ['{1-3, 5, numberLines: 7}'],
@@ -78,9 +103,9 @@ const cases = [
       highlight: {
         '1-3': true,
         5: true,
-        numberLines: 7
-      }
-    }
+        numberLines: 7,
+      },
+    },
   },
   // Multiple Highlight Objects
   {
@@ -88,9 +113,9 @@ const cases = [
     output: {
       highlight: {
         '1-3': true,
-        5: true
-      }
-    }
+        5: true,
+      },
+    },
   },
   // Mixed
   {
@@ -99,10 +124,10 @@ const cases = [
       attr: true,
       highlight: {
         '1-3': true,
-        5: true
+        5: true,
       },
-      title: 'Title Text'
-    }
+      title: 'Title Text',
+    },
   },
   // Well Mixed
   {
@@ -112,64 +137,64 @@ const cases = [
       'title="Title Text"',
       'color=--theme-color',
       'themes=[nord, dracula]',
-      'css-overrides={ "*": { display: none }}'
+      'css-overrides={ "*": { display: none }}',
     ],
     output: {
       twoslash: true,
       highlight: {
         '1-3': true,
         5: true,
-        numberLines: 7
+        numberLines: 7,
       },
       title: 'Title Text',
       color: '--theme-color',
       themes: ['nord', 'dracula'],
       'css-overrides': {
         '*': {
-          display: 'none'
-        }
-      }
-    }
+          display: 'none',
+        },
+      },
+    },
   },
   // Tricky ??
   {
     input: ['true=false'],
     output: {
-      true: false
-    }
+      true: false,
+    },
   },
   {
     input: ['0=1'],
     output: {
-      0: 1 // works because of JS's '0' === 0 for keys
-    }
+      0: 1, // works because of JS's '0' === 0 for keys
+    },
   },
   // Exceptions
   {
     input: ['{1-3, 5'],
-    error: 'Unterminated object'
+    error: 'Unterminated object',
   },
   {
     input: ['title="Title Text'],
-    error: 'Unterminated string'
+    error: 'Unterminated string',
   },
   {
     input: ['themes=[nord'],
-    error: 'Unterminated array'
+    error: 'Unterminated array',
   },
   {
     input: ['{1-3, }'],
-    error: 'Trailing comma'
+    error: 'Trailing comma',
   },
   {
     input: ['themes=[nord, ]'],
-    error: 'Trailing comma'
+    error: 'Trailing comma',
   },
   {
     input: ['css={*: {}}'],
-    error: 'Unexpected character *'
-  }
-]
+    error: 'Unexpected character *',
+  },
+] as Parameters<typeof prepareCases>[0]
 
 export const n = cases.length
 export default prepareCases(cases)

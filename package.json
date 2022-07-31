@@ -8,67 +8,53 @@
   "repository": "frencojobs/fenceparser",
   "license": "MIT",
   "author": "Frenco <hey@frenco.dev>",
-  "type": "module",
-  "exports": "./dist/index.js",
-  "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
-    "watch": "tsup --watch",
-    "lint": "eslint src/ test/ --ext .js,.jsx,.ts,.tsx",
-    "test": "jest",
-    "prepare": "husky install"
+    "build": "unbuild",
+    "format": "prettier --write --cache .",
+    "test": "vitest --coverage",
+    "version": "changeset version && pnpm run format"
   },
-  "prettier": "minimalistic",
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown",
+    "*.ts": "eslint --fix"
+  },
+  "prettier": "@frenco/prettier-config",
   "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended"
-    ],
-    "rules": {
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "prettier/prettier": [
-        "error",
-        {
-          "endOfLine": "auto"
-        }
-      ]
+    "parserOptions": {
+      "project": "./tsconfig.json"
     },
-    "ignorePatterns": "dist"
-  },
-  "jest": {
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "tsconfig.test.json"
-      }
-    },
-    "testMatch": [
-      "<rootDir>/**/*.(spec|test).{ts,tsx,js,jsx}"
-    ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
-    }
+    "extends": "@frenco/eslint-config",
+    "root": true
   },
   "devDependencies": {
-    "@types/jest": "^27.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.29.0",
-    "@typescript-eslint/parser": "^4.29.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "husky": "^7.0.0",
-    "jest": "^27.0.6",
-    "minimalistic": "^1.0.0",
-    "prettier": "^2.3.2",
-    "ts-jest": "^27.0.4",
-    "tsup": "^4.13.1",
-    "typescript": "^4.3.5"
-  }
+    "@changesets/cli": "^2.24.1",
+    "@frenco/eslint-config": "^1.1.0",
+    "@frenco/prettier-config": "^2.0.0",
+    "@tsconfig/node16-strictest": "^1.0.3",
+    "c8": "^7.12.0",
+    "eslint": "^8.20.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "simple-git-hooks": "^2.8.0",
+    "typescript": "^4.7.4",
+    "unbuild": "^0.7.6",
+    "vitest": "^0.19.1"
+  },
+  "packageManager": "pnpm@7.6.0"
 }

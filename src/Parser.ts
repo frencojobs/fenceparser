@@ -17,11 +17,11 @@ import {isQuoted, Iterator, Token} from './utils'
 // IDENTIFIER → STRING
 
 export type OBJECT = {[key in string | number]: VALUE}
-export type VALUE = OBJECT | Array<VALUE> | string | boolean | number
+export type VALUE = OBJECT | VALUE[] | string | boolean | number
 
-export const parse = (input: Array<Token>) => new Parser(input).parse()
+export const parse = (input: Token[]) => new Parser(input).parse()
 
-class Parser extends Iterator<Array<Token>> {
+class Parser extends Iterator<Token[]> {
   private output: Record<string, VALUE> = {}
 
   private object() {
@@ -29,12 +29,11 @@ class Parser extends Iterator<Array<Token>> {
     const parseValue = () => {
       let identifier = this.advance()
 
-      if (typeof identifier === 'number') {
-        identifier = identifier as number
-      } else if (typeof identifier === 'string' && isQuoted(identifier)) {
+      if (typeof identifier === 'string' && isQuoted(identifier)) {
         identifier = identifier.slice(1, -1)
+      } else {
+        identifier = identifier.toString()
       }
-      identifier = identifier as string
 
       if (this.peek() === ':') {
         this.advance()
@@ -63,7 +62,7 @@ class Parser extends Iterator<Array<Token>> {
   }
 
   private array() {
-    const result: Array<VALUE> = []
+    const result: VALUE[] = []
 
     this.advance()
     if (this.peek() !== ']') {
@@ -106,13 +105,13 @@ class Parser extends Iterator<Array<Token>> {
       const peeked = this.peek()
 
       if (peeked === '{') {
-        if (!this.output.highlight) {
-          this.output.highlight = {}
+        if (!('highlight' in this.output)) {
+          this.output['highlight'] = {}
         }
 
-        this.output.highlight = {
-          ...(this.output.highlight as OBJECT),
-          ...this.object()
+        this.output['highlight'] = {
+          ...(this.output['highlight'] as OBJECT),
+          ...this.object(),
         }
       } else {
         const identifier = this.advance() as string
