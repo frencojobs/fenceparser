@@ -1,5 +1,11 @@
 # fenceparser
 
+## 2.1.0
+
+### Minor Changes
+
+- 28d431d: Add support for CJS and ESM. We now use changeset to manage CHANGELOG and publish.
+
 ## 2.0.0
 
 - Remove TSDX
