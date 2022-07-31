@@ -41,9 +41,6 @@
       "project": "./tsconfig.json"
     },
     "extends": "@frenco/eslint-config",
-    "ignorePatterns": [
-      "dist"
-    ],
     "root": true
   },
   "devDependencies": {
