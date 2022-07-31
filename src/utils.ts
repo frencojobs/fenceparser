@@ -7,7 +7,9 @@ export const isQuoted = (s: string) => {
   return s.length > 1 && first === last && (first === '"' || last === "'")
 }
 
-export class Iterator<T extends string | Array<Token>> {
+export class Iterator<T extends string | Token[]> {
+  public constructor(protected readonly input: T) {}
+
   protected error(err: string) {
     throw new Error(`Fenceparser: ${err}.`)
   }
@@ -15,17 +17,15 @@ export class Iterator<T extends string | Array<Token>> {
   protected start = 0
   protected current = 0
 
-  protected peek(n?: number): T[number] {
-    return this.input[this.current + (n ?? 0)]
+  protected peek(n = 0): T[number] {
+    return this.input[this.current + n]!
   }
 
   protected advance(): T[number] {
-    return this.input[this.current++]
+    return this.input[this.current++]!
   }
 
   protected isAtEnd() {
     return this.current >= this.input.length
   }
-
-  public constructor(protected readonly input: T) {}
 }

@@ -1,39 +1,19 @@
-// Apparently from StackOverflow
-const permute = (input: Array<string>) => {
-  const result = [input.slice()]
-  const c = new Array(input.length).fill(0)
-  let i = 1,
-    k,
-    p
-
-  while (i < input.length) {
-    if (c[i] < i) {
-      k = i % 2 && c[i]
-      p = input[i]
-      input[i] = input[k]
-      input[k] = p
-      ++c[i]
-      i = 1
-      result.push(input.slice())
-    } else {
-      c[i] = 0
-      ++i
-    }
-  }
-
-  return result
+// from https://stackoverflow.com/a/30551462
+const p = (xs: string[]): typeof xs[] => {
+  if (!xs.length) return [[]]
+  return xs.flatMap((x) => p(xs.filter((v) => v !== x)).map((vs) => [x, ...vs]))
 }
 
-export const prepareCases = (
-  cases: Array<{
-    input: Array<string>
-    output?: Record<string, unknown> | null
-    error?: string
-  }>
-) => {
+interface TestCase {
+  input: string[]
+  output?: Record<string, unknown> | null
+  error?: string
+}
+
+export const prepareCases = (cases: TestCase[]) => {
   return cases
-    .map(({input, ...props}) => {
-      return permute(input).map((p) => ({input: p.join(' '), ...props}))
-    })
+    .map(({input, ...props}) =>
+      p(input).map((p) => ({input: p.join(' '), ...props})),
+    )
     .reduce((a, b) => [...a, ...b])
 }
