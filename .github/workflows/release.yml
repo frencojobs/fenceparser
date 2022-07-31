@@ -27,6 +27,13 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
+      - name: Wait for tests to succeed
+        uses: lewagon/wait-on-check-action@v1.1.2
+        with:
+          ref: ${{ github.ref }}
+          check-name: Test
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create Release Pull Request or Publish
         uses: changesets/action@v1
         with:
