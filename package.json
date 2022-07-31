@@ -23,9 +23,8 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "coverage": "vitest --coverage",
     "format": "prettier --write --cache .",
-    "test": "vitest",
+    "test": "vitest --coverage",
     "version": "changeset version && pnpm run format"
   },
   "simple-git-hooks": {
