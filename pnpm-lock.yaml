@@ -2,9 +2,9 @@ lockfileVersion: 5.4
 
 specifiers:
   '@changesets/cli': ^2.24.1
-  '@frenco/eslint-config': ^1.1.0
+  '@frenco/eslint-config': ^2.1.0
   '@frenco/prettier-config': ^2.0.0
-  '@tsconfig/node16-strictest': ^1.0.3
+  '@frenco/tsconfig': ^0.1.0
   c8: ^7.12.0
   eslint: ^8.20.0
   lint-staged: ^13.0.3
@@ -16,9 +16,9 @@ specifiers:
 
 devDependencies:
   '@changesets/cli': 2.24.1
-  '@frenco/eslint-config': 1.1.0_7wmdnazylordkmmp5xylrck47q
+  '@frenco/eslint-config': 2.1.0_7wmdnazylordkmmp5xylrck47q
   '@frenco/prettier-config': 2.0.0_gd3y7r3s3evy6b2vthd7dmacga
-  '@tsconfig/node16-strictest': 1.0.3
+  '@frenco/tsconfig': 0.1.0_typescript@4.7.4
   c8: 7.12.0
   eslint: 8.20.0
   lint-staged: 13.0.3
@@ -566,10 +566,10 @@ packages:
       - supports-color
     dev: true
 
-  /@frenco/eslint-config/1.1.0_7wmdnazylordkmmp5xylrck47q:
+  /@frenco/eslint-config/2.1.0_7wmdnazylordkmmp5xylrck47q:
     resolution:
       {
-        integrity: sha512-IJla64dsmdC79gNK2nz//iuZ1xFAF3efzaGUc679FMB/8ylebuEwXdUpvZ/aH4dLYvT2RHbkifK+tdq9jcSMAA==,
+        integrity: sha512-yT0yOzM5Rar9QP9DSEd/cMGRHLzMa90+I7SITGUdWS8Ev/vjgNtkcNOymhyViRuE9zb2NGb1zR6V7rITEXuTNA==,
       }
     peerDependencies:
       eslint: '>=8.19.0'
@@ -599,6 +599,17 @@ packages:
       prettier: 2.7.1
       prettier-plugin-organize-imports: 3.0.0_gd3y7r3s3evy6b2vthd7dmacga
       prettier-plugin-packagejson: 2.2.18_prettier@2.7.1
+      typescript: 4.7.4
+    dev: true
+
+  /@frenco/tsconfig/0.1.0_typescript@4.7.4:
+    resolution:
+      {
+        integrity: sha512-8NZN7QanBuJBZ6muGlTy6Fj8hhmvqsnJs3h9ac1wxblcrhc/VAWgT9t9xXXcKqzvNnO//HfNEKbU7GKleATwrg==,
+      }
+    peerDependencies:
+      typescript: '>=4.7.4'
+    dependencies:
       typescript: 4.7.4
     dev: true
 
@@ -842,13 +853,6 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
-    dev: true
-
-  /@tsconfig/node16-strictest/1.0.3:
-    resolution:
-      {
-        integrity: sha512-sY7TxE3BzAdsCuKqGWOTtAoPe4tPD0xlPWfjinJvrBvCulyALVSwvIoo7WMcX8O/WyMFzn9rQObA43mAogQ8MQ==,
-      }
     dev: true
 
   /@types/chai-subset/1.3.3:
