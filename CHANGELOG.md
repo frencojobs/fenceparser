@@ -1,5 +1,11 @@
 # fenceparser
 
+## 2.1.1
+
+### Patch Changes
+
+- 2955219: Add build step to ci fixing missing dist directory error.
+
 ## 2.1.0
 
 ### Minor Changes
