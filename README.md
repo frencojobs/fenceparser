@@ -1,8 +1,8 @@
 <img align="center" src="https://raw.githubusercontent.com/frencojobs/fenceparser/main/.github/cover.png" />
 
-<p align="center"> A well-tested parser for parsing metadata out of fenced code blocks in Markdown. </p>
+<p align="center"> A tiny , well-tested parser for parsing metadata out of fenced code blocks in Markdown. </p>
 
-## Overview
+## Overview ・ <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/fenceparser?color=success&label=size"> <img alt="Codecov" src="https://img.shields.io/codecov/c/github/frencojobs/fenceparser?color=important">
 
 Assuming you have this code fence in your Markdown,
 
@@ -78,4 +78,4 @@ The syntax grammar is loosely based on techniques used by various syntax-highlig
 ## Acknowledgements
 
 1. This project is made initially to use with [Twoslash](https://github.com/shikijs/twoslash).
-2. The `Lexer` and `Parser` are based on the examples from the book [Crafting Interpreters](http://craftinginterpreters.com).
+2. The initial implementations of lexer and parser are based on the examples from the book [Crafting Interpreters](http://craftinginterpreters.com).
