@@ -66,6 +66,7 @@ const meta = parse(tokens) // { highlight: {'1-3': true, '5': true} }
 The syntax grammar is loosely based on techniques used by various syntax-highlighters. Rules are such that
 
 - Valid HTML attributes can be used, `attribute`, `data-attribute`, etc.
+- Just like in HTML, top-level attribute names are case insensitive.
 - Attributes without values are assigned as `true`
 - Attribute values can be single or double quoted strings, int/float numbers, booleans, objects or arrays
 - Non-quoted strings are valid as long as they are not separated by a whitespace or a line-break, `attr=--theme-color`

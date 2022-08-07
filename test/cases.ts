@@ -1,10 +1,11 @@
+import {FenceparserError} from '../src'
 import {prepareCases} from './utils'
 
 const cases = [
   // Empty
   {
     input: [''],
-    output: null,
+    output: {},
   },
   // Attributes
   {
@@ -22,6 +23,13 @@ const cases = [
       attr2: 2,
       attr3: 'string',
       attr4: false,
+    },
+  },
+  // Case insensitivity
+  {
+    input: ['attr1', 'aTtr1', 'Attr1', 'aTTr1', 'ATTR1'],
+    output: {
+      attr1: true,
     },
   },
   // Numbers
@@ -172,27 +180,27 @@ const cases = [
   // Exceptions
   {
     input: ['{1-3, 5'],
-    error: 'Unterminated object',
+    error: new FenceparserError('Unterminated object'),
   },
   {
     input: ['title="Title Text'],
-    error: 'Unterminated string',
+    error: new FenceparserError('Unterminated string'),
   },
   {
     input: ['themes=[nord'],
-    error: 'Unterminated array',
+    error: new FenceparserError('Unterminated array'),
   },
   {
     input: ['{1-3, }'],
-    error: 'Trailing comma',
+    error: new FenceparserError('Trailing comma'),
   },
   {
     input: ['themes=[nord, ]'],
-    error: 'Trailing comma',
+    error: new FenceparserError('Trailing comma'),
   },
   {
     input: ['css={*: {}}'],
-    error: 'Unexpected character *',
+    error: new FenceparserError('Unexpected character *'),
   },
 ] as Parameters<typeof prepareCases>[0]
 

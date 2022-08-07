@@ -1,5 +1,7 @@
+import type {FenceparserError} from '../src'
+
 // from https://stackoverflow.com/a/30551462
-const p = (xs: string[]): typeof xs[] => {
+const p = (xs: string[]): Array<typeof xs> => {
   if (!xs.length) return [[]]
   return xs.flatMap((x) => p(xs.filter((v) => v !== x)).map((vs) => [x, ...vs]))
 }
@@ -7,7 +9,7 @@ const p = (xs: string[]): typeof xs[] => {
 interface TestCase {
   input: string[]
   output?: Record<string, unknown> | null
-  error?: string
+  error?: FenceparserError
 }
 
 export const prepareCases = (cases: TestCase[]) => {
