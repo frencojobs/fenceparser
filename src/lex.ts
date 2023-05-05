@@ -6,7 +6,7 @@ const OPS = /[{}[\]=,:]/
 const QUOTES = /["']/
 const ALPHAS = /[a-zA-Z_$-]/
 const NUMBERS = /[0-9]/
-const ALPHANUMERIC = /[a-zA-Z_$-]|[0-9]/
+const ALPHANUMERIC = /[a-zA-Z_$-.]|[0-9]/
 
 type Input = string
 type Output = Array<string | number>
