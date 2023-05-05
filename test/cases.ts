@@ -92,10 +92,15 @@ const cases = [
   },
   // Unquoted strings (only works for those without spaces)
   {
-    input: ['attr1=value1', 'attr2=--variable-names-like-css'],
+    input: [
+      'attr1=value1',
+      'attr2=--variable-names-like-css',
+      'attr3=with.dots.ext',
+    ],
     output: {
       attr1: 'value1',
       attr2: '--variable-names-like-css',
+      attr3: 'with.dots.ext',
     },
   },
   // Highlight Object (object literal without an attribute name)
